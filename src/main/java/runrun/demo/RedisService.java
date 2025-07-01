@@ -22,7 +22,7 @@ public class RedisService {
     public void saveUser(String key, User user) {
 
         try {
-            String json = objectMapper.writeValueAsString(key);
+            String json = objectMapper.writeValueAsString(user);
             redisTemplate.opsForValue().set(key, json);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("json 오류",e);
